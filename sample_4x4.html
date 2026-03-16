@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KenKen 4×4</title>
+<style>
+  @media print {
+    body { margin: 0; }
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  td {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    vertical-align: top;
+    padding: 0;
+  }
+  .label {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+  <table>
+      <tr><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 1px solid #ccc; border-right: 3px solid #000"><span class="label">2÷</span></td><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 1px solid #ccc"><span class="label">3-</span></td><td style="border-top: 3px solid #000; border-left: 1px solid #ccc; border-bottom: 3px solid #000; border-right: 3px solid #000"></td><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 3px solid #000"><span class="label">1</span></td></tr>
+      <tr><td style="border-top: 1px solid #ccc; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 3px solid #000"></td><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 1px solid #ccc; border-right: 3px solid #000"><span class="label">8+</span></td><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 1px solid #ccc"><span class="label">2÷</span></td><td style="border-top: 3px solid #000; border-left: 1px solid #ccc; border-bottom: 3px solid #000; border-right: 3px solid #000"></td></tr>
+      <tr><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 3px solid #000"><span class="label">3</span></td><td style="border-top: 1px solid #ccc; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 3px solid #000"></td><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 1px solid #ccc; border-right: 3px solid #000"><span class="label">12×</span></td><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 1px solid #ccc; border-right: 3px solid #000"><span class="label">1-</span></td></tr>
+      <tr><td style="border-top: 3px solid #000; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 1px solid #ccc"><span class="label">3+</span></td><td style="border-top: 3px solid #000; border-left: 1px solid #ccc; border-bottom: 3px solid #000; border-right: 3px solid #000"></td><td style="border-top: 1px solid #ccc; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 3px solid #000"></td><td style="border-top: 1px solid #ccc; border-left: 3px solid #000; border-bottom: 3px solid #000; border-right: 3px solid #000"></td></tr>
+  </table>
+</body>
+</html>
