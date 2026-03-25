@@ -187,6 +187,9 @@ def generate_html(puzzle: dict, solution: Optional[list] = None) -> str:
             s = cell_styles[r][c]
             inline = "; ".join(f"{k}: {v}" for k, v in s.items())
             label = labels.get((r, c), "")
+            # if label ends with %, change that character
+            if label.endswith("÷"):
+                label = label[:-1] + "%"
             label_span = (
                 f'<span class="label">{label}</span>' if label else ""
             )
@@ -292,6 +295,16 @@ def generate_html(puzzle: dict, solution: Optional[list] = None) -> str:
 </html>
 """
 
+def puzzle_filename(puzzle: dict) -> str:
+    """Build a filename from cage labels, replacing operation symbols."""
+    labels = []
+    for cage in puzzle["cages"]:
+        op = cage.get("operation") or ""
+        labels.append(f"{cage['target']}{op}")
+    name = ",".join(labels)
+    name = name.replace("+", "p").replace("-", "m").replace("×", "x").replace("÷", "d")
+    return name
+
 
 def main():
     parser = argparse.ArgumentParser(description="Display a KenKen grid as printable HTML.")
@@ -308,8 +321,9 @@ def main():
         default_out = Path(args.file.name).with_suffix(".html")
     else:
         puzzle = load_puzzle(sys.stdin)
-        Path("input.json").write_text(json.dumps(puzzle, indent=2, ensure_ascii=False))
-        default_out = Path("kenken.html")
+        base = puzzle_filename(puzzle)
+        Path(f"{base}.json").write_text(json.dumps(puzzle, indent=2, ensure_ascii=False))
+        default_out = Path(f"{base}.html")
 
     solution = None
     if args.solve:
